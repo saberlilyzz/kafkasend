@@ -1,0 +1,43 @@
+server:
+  port: 18082
+  tomcat:
+    uri-encoding: UTF-8
+spring:
+  servlet:
+    multipart:
+      max-file-size: 500MB
+      max-request-size: 500MB
+  datasource:
+    driver-class-name: oracle.jdbc.OracleDriver
+    url: jdbc:oracle:thin:@172.19.8.28:1521/helowin
+#    url: jdbc:oracle:thin:@//191.168.10.3:1521/xrisk
+    username: YHUSER
+    password: yhuser_testt
+    type: com.alibaba.druid.pool.DruidDataSource
+  application:
+    name: SpringbootKafkaApplication
+  cloud:
+    nacos:
+      discovery:
+#        #server-addr: 172.19.6.31:28848
+#        server-addr: xbookplus.xquant.com:31048
+#        namespace: algo-dev
+        enabled: false
+      config:
+        enabled: false
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+    auto-mapping-behavior: full
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    call-setters-on-nulls: true
+  #mapper-locations: classpath*:mapper/**/*Mapper.xml
+  global-config:
+    db-config:
+      logic-not-delete-value: 1
+      logic-delete-value: 0
+kafka:
+  url: 172.19.8.28:9092
+  kerberos: false
+
+
